@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "view": "rollup -c ./rollup.config.js && node ./dist/bundle.js"
+    "test:observer": "rollup -c ./config/rollup.config.js && node ./dist/test-observer.js"
   },
   "author": "Zhazheng",
   "license": "ISC",

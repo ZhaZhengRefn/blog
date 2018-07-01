@@ -1,9 +1,9 @@
 import babel from 'rollup-plugin-babel';
 
 export default {
-  input: './index.js',
+  input: './util/test-observer.js',
   output: {
-    file: 'dist/bundle.js',
+    file: './dist/test-observer.js',
     format: 'cjs'
   },
   plugins: [
