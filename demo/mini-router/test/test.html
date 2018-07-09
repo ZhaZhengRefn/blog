@@ -1,0 +1,17 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>router-test</title>
+  <script src="../dist/router.js"></script>
+</head>
+<body>
+  <script>
+    window.location.hash = '/foo'
+    setTimeout(() => {
+      window.location.hash = '/bar'
+    }, 1000);
+  </script>  
+</body>
+</html>
