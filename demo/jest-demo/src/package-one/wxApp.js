@@ -1,3 +1,5 @@
+const _has = Object.prototype.hasOwnProperty
+
 const Apps = {
   1: { //position
     domain: 'wx.pandateacher.com',
@@ -22,7 +24,13 @@ const Apps = {
 };
 
 module.exports = exports = {
-  getAppByPosition(position) {
-    return Promise.resolve(Apps[position])
+  getAppByPosition(position){
+    return new Promise((resolve, reject) => {
+      if(_has.call(Apps, position)){
+        resolve(Apps[position])
+      } else {
+        reject(new Error('>>>getAppByPosition: does not have position-' + position))
+      }
+    })
   }
 }
