@@ -1,0 +1,31 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>脏检查简单实现</title>
+</head>
+
+<body>
+  <form action="">
+    <input type="text" ng-bind="number">
+    <button type="button" ng-click="addNumber">数字+1</button>
+  </form>
+  <div ng-bind="number"></div>
+  <script src="./scope.js"></script>
+  <script>
+    const $scope = new Scope()
+
+    $scope.number = 0
+    $scope.addNumber = function () {
+      this.number++
+    }
+    $scope.$init()
+
+    $scope.number = 1
+    $scope.$digest()
+  </script>
+</body>
+
+</html>
