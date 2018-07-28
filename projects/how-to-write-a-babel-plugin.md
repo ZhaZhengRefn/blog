@@ -16,7 +16,7 @@
 我采用的是[wepy][5]框架，类vue语法的开发，开发体验非常棒。在vue中，一个组件就是单文件，包含了js、html、css。wepy采用vue的语法，但由与vue稍稍有点区别，wepy的组件分为三种--wepy.app类，wepy.page类，wepy.component类。
 对应到我们的目录结构中，每个模块实际上就是一系列的page组件。要组合这一系列的模块，那么很简单，我们要做的就是把这一系列page的路由扫描成一个路由表，然后[插入到小程序的入口--app.json中][6]。对应wepy框架那即是app.wpy中的pages字段。
 
-![pages字段](/img/bV3fu8)
+![pages字段](http://o8swwgh2r.bkt.clouddn.com/4057065663-5a76dcad00da6.png)
 
 ## 扫描路由表
 第一步！先得到所有pages的路由并综合成一个**路由表**！
@@ -461,9 +461,9 @@ fs.writeFileSync(appFile, fileContent.replace(code, result.code))
 邮箱：nicolas_refn@foxmail.com
 
   [1]: http://o8swwgh2r.bkt.clouddn.com/babel-pages.svg
-  [2]: /img/bV3fs4
+  [2]: http://o8swwgh2r.bkt.clouddn.com/91569448-5a76d7fdabeab.png
   [3]: https://danielkummer.github.io/git-flow-cheatsheet/index.zh_CN.html
-  [4]: /img/bV3ft6
+  [4]: http://o8swwgh2r.bkt.clouddn.com/4098480091-5a76da4d1902a.jpeg
   [5]: https://github.com/Tencent/wepy
   [6]: https://mp.weixin.qq.com/debug/wxadoc/dev/framework/config.html
   [7]: https://github.com/thejameskyle/the-super-tiny-compiler
