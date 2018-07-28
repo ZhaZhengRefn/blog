@@ -27,7 +27,6 @@ class Scope {
   $digest() {
     let dirty = true
     while (dirty) {
-      const bindElements = [...document.querySelectorAll("[ng-bind]")]
       dirty = false
       this.$$watcher.forEach(cur => {
         const newVal = cur.newVal()
@@ -35,17 +34,6 @@ class Scope {
           dirty = true
           cur.oldVal = newVal
           cur.listener(cur.oldVal, newVal)
-          //数据变动时操作dom
-          bindElements.forEach(el => {
-            const dataName = el.getAttribute("ng-bind")
-            if (dataName === cur.name) {
-              if (el.tagName === 'INPUT') {
-                el.value = this[dataName]
-              } else {
-                el.innerHTML = this[dataName]
-              }
-            }
-          })
         }
       })
     }
@@ -53,22 +41,35 @@ class Scope {
 
   $init() {
     const _this = this
+    const bindElements = [...document.querySelectorAll("[ng-bind]")]
 
     //监听所有数据，添加watcher
     for (const key in this) {
       if (this.hasOwnProperty(key)) {
         const cur = this[key];
-        if (key !== '$watch' && key !== '$digest' && key !== '$$watcher' && typeof cur !== 'function') {
+        if (key[0] !== '$' && typeof cur !== 'function') {
           this.$watch(key, function (key) {
             return function () {
               return _this[key]
             }
-          }(key))
+          }(key), function(old, newVal) {
+            // 解析所有ng-bind指令
+            bindElements.forEach(el => {
+              const dataName = el.getAttribute("ng-bind")
+              if (dataName === key) {
+                if (el.tagName === 'INPUT') {
+                  el.value = _this[dataName]
+                } else {
+                  el.innerHTML = _this[dataName]
+                }
+              }
+            })
+          })
         }
       }
     }    
 
-    //解析所有ng-click指令
+    // 解析所有ng-click指令
     const clickElements = document.querySelectorAll("[ng-click]")
     clickElements.forEach(el => {
       el.onclick = function() {
