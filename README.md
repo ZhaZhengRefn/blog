@@ -6,8 +6,8 @@
  - [实现私有变量的几种方法][2]
  - [谈谈WeakMap][3]
  - [【框架通识系列】双向绑定之脏检查][4]
- - [打包工具实现][4]
- - [Vue异步更新队列][5]
+ - [【框架通识系列】打包工具实现][4]
+ - [【框架通识系列】Vue异步更新队列][5]
 
  [1]: https://github.com/ZhaZhengRefn/blog/issues/2
  [2]: https://github.com/ZhaZhengRefn/blog/issues/3
